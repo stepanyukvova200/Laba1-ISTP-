@@ -1,0 +1,30 @@
+﻿@model LibraryWebApplication.Models.ClubsSponsor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ClubsSponsor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Club)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Club.NameClub)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EdrpouNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EdrpouNavigation.NameSponsor)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ClubSponsorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

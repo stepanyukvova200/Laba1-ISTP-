@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LibraryWebApplication.Models.Bootcamp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Буткемпи</h1>
+
+<p>
+    <a asp-action="Create">Додати буткемп</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConstructionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Club)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConstructionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.NameClub)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BootcampId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BootcampId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BootcampId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

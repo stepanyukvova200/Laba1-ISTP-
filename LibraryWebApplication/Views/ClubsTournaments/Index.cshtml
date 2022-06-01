@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LibraryWebApplication.Models.ClubsTournament>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Організація турнірів</h1>
+
+<p>
+    <a asp-action="Create">Додати клуб до турніру</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Club)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tournament)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.NameClub)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tournament.Location)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ClubTournamentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ClubTournamentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ClubTournamentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

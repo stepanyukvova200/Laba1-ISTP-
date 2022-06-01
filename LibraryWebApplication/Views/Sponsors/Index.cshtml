@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LibraryWebApplication.Models.Sponsor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Спонсори</h1>
+
+<p>
+    <a asp-action="Create">Додати спонсора</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameSponsor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SphereOfActivity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSponsor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SphereOfActivity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country.Country)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Edrpou">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Edrpou">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Edrpou">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
